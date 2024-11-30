@@ -11,7 +11,7 @@
 
 ## Install Nginx
 ### langkah 1 Update sistem
-'''sh
+```sh
 sudo apt update && sudo apt upgrade -y
-'''
-  
+
+```
