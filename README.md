@@ -64,11 +64,11 @@ Buat file html
     </body>
 </html>
 ```
-Ganti yourdomain dengan domain Anda disini saya sudah ganti dengan domain saya yaitu Tuan_vallen 
+Konfigurasi Blok Server agar kontent di atas dapat di akses dengan perintah
 ```sh
 sudo nano /etc/nginx/sites-available/your_domain
 ```
-Ganti lagi dengan Domain Anda
+Ganti dengan Domain Anda Disini Domain saya yaitu Tuan_vallen
 
 ```sh
 server {
