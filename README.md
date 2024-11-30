@@ -27,3 +27,12 @@ sudo ufw status
 Dengan Output
 
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20firewall.png?raw=true)
+
+### langkah 4 Memeriksa web server anda
+```sh
+systemctl status nginx
+```
+Dengan Output
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20firewall.png?raw=true)
+
