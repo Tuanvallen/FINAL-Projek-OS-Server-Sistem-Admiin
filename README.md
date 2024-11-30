@@ -68,7 +68,7 @@ Ganti yourdomain dengan domain Anda disini saya sudah ganti dengan domain saya y
 ```sh
 sudo nano /etc/nginx/sites-available/your_domain
 ```
-Ganti lagi
+Ganti lagi dengan Domain Anda
 
 ```sh
 server {
