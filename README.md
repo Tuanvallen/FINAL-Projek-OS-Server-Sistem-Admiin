@@ -36,3 +36,12 @@ Dengan Output
 
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
 
+### langkah 5 Cek Nginx dengan Mengetikkan IP anda
+```sh
+http://your_server_ip
+```
+Output
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
+
+
