@@ -25,4 +25,4 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 ```
 Dengan Output
-![alt text](Hasil Output firewall.png)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20firewall.png?raw=true)
