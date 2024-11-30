@@ -34,5 +34,5 @@ systemctl status nginx
 ```
 Dengan Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20firewall.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
 
