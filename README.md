@@ -25,4 +25,4 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 ```
 Dengan Output
-![Hasil](Hasil Output firewall.png)
+![alt text](Hasil Output firewall.png)
