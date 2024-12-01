@@ -107,6 +107,6 @@ Ini akan memandu Anda melalui serangkaian perintah yang memungkinkan Anda membua
 
 Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Web%20server%20Nginx.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
 
 
