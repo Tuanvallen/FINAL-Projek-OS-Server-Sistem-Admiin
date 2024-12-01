@@ -109,4 +109,41 @@ Output
 
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
 
+### langkah 3 Membuat Pengguna MySQL Khusus dan Memberikan Hak Istimewa
+Masuk MYSQL 
+```sh
+sudo mysql
+```
 
+Setelah Anda memiliki akses ke prompt MySQL, Anda dapat membuat pengguna baru dengan CREATE USERpernyataan. Pernyataan ini mengikuti sintaksis umum berikut:
+```sh
+CREATE USER 'tuanvallen'@'localhost' IDENTIFIED BY 'password';
+```
+
+Jalankan GRANTpernyataan ini, ganti tuanvallen dengan nama pengguna MySQL Anda sendiri, untuk memberikan hak istimewa ini kepada pengguna Anda
+```sh
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'tuanvallen'@'localhost' WITH GRANT OPTION;
+```
+
+Setelah ini, ada baiknya untuk menjalankan FLUSH PRIVILEGESperintah tersebut. Ini akan membebaskan memori yang di-cache server sebagai hasil dari pernyataan sebelumnya CREATE USERdan GRANT:
+```sh
+FLUSH PRIVILEGES;
+exit
+```
+
+### langkah 4 Menguji Mysql
+periksa statusnya.
+```sh
+systemctl status mysql.service
+```
+Outputnya
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
+
+Cek versi Mysql
+```sh
+sudo mysqladmin -p -u tuanvallen version
+```
+Output
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
