@@ -26,7 +26,7 @@ sudo ufw status
 ```
 Dengan Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20firewall.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Output%20firewall.png?raw=true)
 
 ### langkah 4 Memeriksa web server anda
 ```sh
@@ -34,7 +34,7 @@ systemctl status nginx
 ```
 Dengan Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
 
 ### langkah 5 Cek Nginx dengan Mengetikkan IP anda
 ```sh
@@ -42,7 +42,7 @@ http://your_server_ip
 ```
 Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Nginx%20Web%20Server.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Nginx%20Web%20Server.png?raw=true)
 
 ### langkah 6 Konfigurasi Blok Server
 ```sh
@@ -87,7 +87,7 @@ server {
 ```
 Cek kembali dengan IP Anda dan akan muncul seperti pada gambar berikut
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Web%20server%20Nginx.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Web%20server%20Nginx.png?raw=true)
 
 
 ## Install MYSQL Database server
