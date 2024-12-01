@@ -138,7 +138,7 @@ systemctl status mysql.service
 ```
 Outputnya
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20priksa%20status%20mysql.png?raw=true)
 
 Cek versi Mysql
 ```sh
@@ -146,4 +146,4 @@ sudo mysqladmin -p -u tuanvallen version
 ```
 Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20versi%20mysql.png?raw=true)
