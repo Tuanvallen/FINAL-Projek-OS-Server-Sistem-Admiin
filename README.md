@@ -90,10 +90,23 @@ Cek kembali dengan IP Anda dan akan muncul seperti pada gambar berikut
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Web%20server%20Nginx.png?raw=true)
 
 
-
 ## Install MYSQL Database server
+
 ### langkah 1 Install mysql dan pastikan berjalan 
 ```sh
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 ```
+
+### langkah 2 Mengonfigurasi MySQL 
+Jalankan skrip keamanan dengan
+```sh
+sudo mysql_secure_installation
+```
+Ini akan memandu Anda melalui serangkaian perintah yang memungkinkan Anda membuat beberapa perubahan pada opsi keamanan instalasi MySQL Anda. Perintah pertama akan menanyakan apakah Anda ingin menyiapkan Plugin Validasi Kata Sandi, yang dapat digunakan untuk menguji kekuatan kata sandi pengguna MySQL baru sebelum menganggapnya valid.
+
+Output
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/SS%20foto%20Final%20Projek/Hasil%20Web%20server%20Nginx.png?raw=true)
+
+
