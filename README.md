@@ -50,19 +50,7 @@ sudo nano /var/www/your_domain/html/index.html
 ```
 Buat file html 
 ```sh
-<html>
-    <head>
-        <title>Selamat Datang Tuan vallen</title>
-    </head>
-    <body>
-        <h1>Sukses Selalu Tuan Vallen</h1>
-        <p>Vallen Aji Kurniawan adalah seorang individu luar biasa dengan segudang talenta.
-                Dikenal sebagai sosok ganteng, jago dalam berbagai bidang, dan seorang miliarder, Vallen telah menginspirasi b>
-                dan kecerdasan, ia terus menciptakan dampak positif di sekitarnya.<p><br>
-        <p>Tak hanya sukses secara materi, Vallen juga dikenal sebagai pribadi yang ramah dan berwawasan luas.
-            Sosoknya adalah cerminan dari keberanian dan dedikasi untuk selalu menjadi versi terbaik dari dirinya.<p>
-    </body>
-</html>
+ISi dengan CODE HTML KALIAN 
 ```
 Konfigurasi Blok Server agar kontent di atas dapat di akses dengan perintah
 ```sh
