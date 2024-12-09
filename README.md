@@ -75,7 +75,7 @@ server {
 ```
 Cek kembali dengan IP Anda dan akan muncul seperti pada gambar berikut
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Web%20server%20Nginx.png?raw=true)
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Web%20Server%20Nginx.png?raw=true)
 
 
 ## Install MYSQL Database server
