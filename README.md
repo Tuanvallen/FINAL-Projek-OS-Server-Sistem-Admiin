@@ -1,68 +1,68 @@
 # FINAL-Projek-OS-Server-Sistem-Admiin
 ## FINAL PROJEK
-# Web Server Setup on Ubuntu 22.04
+# Pengaturan Server Web pada Ubuntu 22.04
 
-This guide provides step-by-step instructions to set up a web server on Ubuntu 22.04 with Apache2, Flask, Gunicorn, and SSH Server.
-
----
-
-## Prerequisites
-
-- A machine running Ubuntu 22.04.
-- Root or user with `sudo` privileges.
-- Stable internet connection.
+Panduan ini memberikan langkah-langkah untuk mengatur server web di Ubuntu 22.04 dengan Apache2, Flask, Gunicorn, dan SSH Server.
 
 ---
 
-## Steps to Set Up the Web Server
+## Prasyarat
 
-### 1. Update System Packages
+- Mesin dengan sistem operasi Ubuntu 22.04.
+- Akses root atau pengguna dengan hak `sudo`.
+- Koneksi internet yang stabil.
+
+---
+
+## Langkah-Langkah Pengaturan Server Web
+
+### 1. Perbarui Paket Sistem
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-### 2. Install Apache2 Web Server
+### 2. Instal Apache2 Web Server
 ```bash
 sudo apt install apache2 -y
 ```
-- Enable and start Apache:
+- Aktifkan dan mulai Apache:
 ```bash
 sudo systemctl enable apache2
 sudo systemctl start apache2
 ```
 
-### 3. Install Python3 and Pip
+### 3. Instal Python3 dan Pip
 ```bash
 sudo apt install python3 python3-pip -y
 ```
 
-### 4. Install Flask Framework
+### 4. Instal Framework Flask
 ```bash
 pip3 install flask
 ```
 
-### 5. Install Gunicorn
+### 5. Instal Gunicorn
 ```bash
 pip3 install gunicorn
 ```
 
-### 6. Install and Configure SSH Server
+### 6. Instal dan Konfigurasi SSH Server
 ```bash
 sudo apt install openssh-server -y
 ```
-- Enable and start SSH:
+- Aktifkan dan mulai SSH:
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
 ```
 
-### 7. Configure Flask Application
-- Create a directory for your Flask application:
+### 7. Konfigurasi Aplikasi Flask
+- Buat direktori untuk aplikasi Flask Anda:
 ```bash
 mkdir ~/my_flask_app
 cd ~/my_flask_app
 ```
-- Create a sample `app.py` file:
+- Buat file `app.py` sederhana:
 ```python
 from flask import Flask
 
@@ -76,22 +76,22 @@ if __name__ == "__main__":
     app.run()
 ```
 
-### 8. Run Flask with Gunicorn
+### 8. Jalankan Flask dengan Gunicorn
 ```bash
 gunicorn --bind 0.0.0.0:8000 app:app
 ```
 
-### 9. Configure Apache to Proxy Requests to Gunicorn
-- Enable the necessary Apache modules:
+### 9. Konfigurasi Apache untuk Meneruskan Permintaan ke Gunicorn
+- Aktifkan modul Apache yang diperlukan:
 ```bash
 sudo a2enmod proxy proxy_http
 sudo systemctl restart apache2
 ```
-- Create an Apache configuration file for your Flask app:
+- Buat file konfigurasi Apache untuk aplikasi Flask Anda:
 ```bash
 sudo nano /etc/apache2/sites-available/my_flask_app.conf
 ```
-Add the following content:
+Tambahkan konten berikut:
 ```apache
 <VirtualHost *:80>
     ServerName yourdomain.com
@@ -103,50 +103,51 @@ Add the following content:
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-- Enable the site and restart Apache:
+- Aktifkan situs dan restart Apache:
 ```bash
 sudo a2ensite my_flask_app
 sudo systemctl restart apache2
 ```
 
-### 10. Test the Setup
-- Open a browser and navigate to `http://<your-server-ip>`.
-- You should see "Hello, World!" displayed.
+### 10. Uji Pengaturan
+- Buka browser dan akses `http://<ip-server-anda>`.
+- Anda seharusnya melihat pesan "Hello, World!" ditampilkan.
 
 ---
 
-## Troubleshooting
+## Pemecahan Masalah
 
-- Check Apache logs:
+- Periksa log Apache:
 ```bash
 sudo tail -f /var/log/apache2/error.log
 ```
-- Check Flask/Gunicorn logs:
+- Periksa log Flask/Gunicorn:
 ```bash
 journalctl -u gunicorn
 ```
 
 ---
 
-## Optional: Secure Your Server with SSL (Let's Encrypt)
-- Install Certbot:
+## Opsional: Amankan Server Anda dengan SSL (Let's Encrypt)
+- Instal Certbot:
 ```bash
 sudo apt install certbot python3-certbot-apache -y
 ```
-- Obtain and install an SSL certificate:
+- Dapatkan dan pasang sertifikat SSL:
 ```bash
 sudo certbot --apache
 ```
-- Test SSL renewal:
+- Uji pembaruan SSL:
 ```bash
 sudo certbot renew --dry-run
 ```
 
 ---
 
-## Conclusion
-You have successfully set up a web server on Ubuntu 22.04 using Apache2, Flask, Gunicorn, and SSH Server. Customize your Flask app as needed and deploy it confidently.
+## Kesimpulan
+Anda telah berhasil mengatur server web di Ubuntu 22.04 menggunakan Apache2, Flask, Gunicorn, dan SSH Server. Sesuaikan aplikasi Flask Anda sesuai kebutuhan dan deploy dengan percaya diri.
 
 ---
+
 
 
