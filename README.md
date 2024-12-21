@@ -1,6 +1,5 @@
 # FINAL-Projek-OS-Server-Sistem-Admiin
 ## FINAL PROJEK
-
 # Web Server Setup on Ubuntu 22.04
 
 This guide provides step-by-step instructions to set up a web server on Ubuntu 22.04 with Apache2, Flask, Gunicorn, and SSH Server.
@@ -149,4 +148,5 @@ sudo certbot renew --dry-run
 You have successfully set up a web server on Ubuntu 22.04 using Apache2, Flask, Gunicorn, and SSH Server. Customize your Flask app as needed and deploy it confidently.
 
 ---
+
 
