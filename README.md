@@ -1,4 +1,4 @@
-# FINAL-Projek-OS-Server-Sistem-Admiin
+# FINAL-Projek-OS-Server-Sistem-Admin
 ## FINAL PROJEK
 # Pengaturan Server Web pada Ubuntu 22.04
 
@@ -115,39 +115,57 @@ sudo systemctl restart apache2
 
 ---
 
-## Pemecahan Masalah
+## Langkah Hosting dengan Cloudflare Tunnel
 
-- Periksa log Apache:
+### 11. Instal Cloudflare Tunnel
+- Unduh dan instal Cloudflare Tunnel:
 ```bash
-sudo tail -f /var/log/apache2/error.log
+curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o cloudflared
+sudo mv cloudflared /usr/local/bin/
+sudo chmod +x /usr/local/bin/cloudflared
 ```
-- Periksa log Flask/Gunicorn:
+
+### 12. Login ke Akun Cloudflare
+- Jalankan perintah berikut untuk login ke akun Cloudflare Anda:
 ```bash
-journalctl -u gunicorn
+cloudflared tunnel login
 ```
+- Ikuti tautan yang diberikan untuk mengautentikasi dan memilih domain Anda.
+
+### 13. Buat dan Jalankan Tunnel
+- Buat tunnel baru:
+```bash
+cloudflared tunnel create my_flask_app
+```
+- Konfigurasi tunnel:
+```bash
+sudo nano /etc/cloudflared/config.yml
+```
+Tambahkan konten berikut:
+```yaml
+tunnel: my_flask_app
+credentials-file: /root/.cloudflared/<credentials-file>.json
+
+ingress:
+  - hostname: yourdomain.com
+    service: http://localhost:80
+  - service: http_status:404
+```
+- Jalankan tunnel:
+```bash
+sudo cloudflared tunnel run my_flask_app
+```
+
+### 14. Konfigurasi DNS di Cloudflare
+- Masuk ke dashboard Cloudflare dan tambahkan DNS record dengan tipe `CNAME`:
+  - Nama: `yourdomain.com`
+  - Target: `my_flask_app` (sesuai nama tunnel Anda)
 
 ---
-
-## Opsional: Amankan Server Anda dengan SSL (Let's Encrypt)
-- Instal Certbot:
-```bash
-sudo apt install certbot python3-certbot-apache -y
-```
-- Dapatkan dan pasang sertifikat SSL:
-```bash
-sudo certbot --apache
-```
-- Uji pembaruan SSL:
-```bash
-sudo certbot renew --dry-run
-```
 
 ---
 
 ## Kesimpulan
-Anda telah berhasil mengatur server web di Ubuntu 22.04 menggunakan Apache2, Flask, Gunicorn, dan SSH Server. Sesuaikan aplikasi Flask Anda sesuai kebutuhan dan deploy dengan percaya diri.
+Anda telah berhasil mengatur server web di Ubuntu 22.04 menggunakan Apache2, Flask, Gunicorn, SSH Server, dan Cloudflare Tunnel. Dengan konfigurasi ini, aplikasi Flask Anda dapat diakses secara aman melalui domain yang terhubung ke Cloudflare.
 
 ---
-
-
-
