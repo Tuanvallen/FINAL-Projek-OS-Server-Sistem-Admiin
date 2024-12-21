@@ -1,137 +1,152 @@
 # FINAL-Projek-OS-Server-Sistem-Admiin
 ## FINAL PROJEK
 
-- Install NginX Web Server
-- Install MYSQL Database server
-- Install Samba File Server
-- Install Node.js Application Server
-- Install Postfix Mail Server
+# Web Server Setup on Ubuntu 22.04
 
-## Installation
+This guide provides step-by-step instructions to set up a web server on Ubuntu 22.04 with Apache2, Flask, Gunicorn, and SSH Server.
 
-## Install NginX Web Server
-### langkah 1 Update sistem
-```sh
+---
+
+## Prerequisites
+
+- A machine running Ubuntu 22.04.
+- Root or user with `sudo` privileges.
+- Stable internet connection.
+
+---
+
+## Steps to Set Up the Web Server
+
+### 1. Update System Packages
+```bash
 sudo apt update && sudo apt upgrade -y
-
-```
-### langkah 2 Install Nginx
-```sh
-sudo apt install nginx
-```
-### langkah 3 Menyesuaikan firewall
-```sh
-sudo ufw allow 'Nginx HTTP'
-sudo ufw status
-```
-Dengan Output
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Output%20firewall.png?raw=true)
-
-### langkah 4 Memeriksa web server anda
-```sh
-systemctl status nginx
-```
-Dengan Output
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Output%20Periksa%20web%20server.png?raw=true)
-
-### langkah 5 Cek Nginx dengan Mengetikkan IP anda
-```sh
-http://your_server_ip
-```
-Output
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Nginx%20Web%20Server.png?raw=true)
-
-### langkah 6 Konfigurasi Blok Server
-```sh
-sudo nano /var/www/your_domain/html/index.html
-```
-Buat file html 
-```sh
-ISi dengan CODE HTML KALIAN 
-```
-Konfigurasi Blok Server agar kontent di atas dapat di akses dengan perintah
-```sh
-sudo nano /etc/nginx/sites-available/your_domain
-```
-Ganti dengan Domain Anda Disini Domain saya yaitu Tuan_vallen
-
-```sh
-server {
-        listen 80;
-        listen [::]:80;
-
-        root /var/www/Tuan_vallen/html;
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name Tuan_vallen www.Tuan_vallen;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-}
-```
-Cek kembali dengan IP Anda dan akan muncul seperti pada gambar berikut
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20Nginx/Hasil%20Web%20Server%20Nginx.png?raw=true)
-
-
-## Install MYSQL Database server
-
-### langkah 1 Install mysql dan pastikan berjalan 
-```sh
-sudo apt install mysql-server
-sudo systemctl start mysql.service
 ```
 
-### langkah 2 Mengonfigurasi MySQL 
-Jalankan skrip keamanan dengan
-```sh
-sudo mysql_secure_installation
+### 2. Install Apache2 Web Server
+```bash
+sudo apt install apache2 -y
 ```
-Ini akan memandu Anda melalui serangkaian perintah yang memungkinkan Anda membuat beberapa perubahan pada opsi keamanan instalasi MySQL Anda. Perintah pertama akan menanyakan apakah Anda ingin menyiapkan Plugin Validasi Kata Sandi, yang dapat digunakan untuk menguji kekuatan kata sandi pengguna MySQL baru sebelum menganggapnya valid.
-
-Output
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20Plugin%20validasi%20mysql.png?raw=true)
-
-### langkah 3 Membuat Pengguna MySQL Khusus dan Memberikan Hak Istimewa
-Masuk MYSQL 
-```sh
-sudo mysql
+- Enable and start Apache:
+```bash
+sudo systemctl enable apache2
+sudo systemctl start apache2
 ```
 
-Setelah Anda memiliki akses ke prompt MySQL, Anda dapat membuat pengguna baru dengan CREATE USERpernyataan. Pernyataan ini mengikuti sintaksis umum berikut:
-```sh
-CREATE USER 'tuanvallen'@'localhost' IDENTIFIED BY 'password';
+### 3. Install Python3 and Pip
+```bash
+sudo apt install python3 python3-pip -y
 ```
 
-Jalankan GRANTpernyataan ini, ganti tuanvallen dengan nama pengguna MySQL Anda sendiri, untuk memberikan hak istimewa ini kepada pengguna Anda
-```sh
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'tuanvallen'@'localhost' WITH GRANT OPTION;
+### 4. Install Flask Framework
+```bash
+pip3 install flask
 ```
 
-Setelah ini, ada baiknya untuk menjalankan FLUSH PRIVILEGESperintah tersebut. Ini akan membebaskan memori yang di-cache server sebagai hasil dari pernyataan sebelumnya CREATE USERdan GRANT:
-```sh
-FLUSH PRIVILEGES;
-exit
+### 5. Install Gunicorn
+```bash
+pip3 install gunicorn
 ```
 
-### langkah 4 Menguji Mysql
-periksa statusnya.
-```sh
-systemctl status mysql.service
+### 6. Install and Configure SSH Server
+```bash
+sudo apt install openssh-server -y
 ```
-Outputnya
-
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20priksa%20status%20mysql.png?raw=true)
-
-Cek versi Mysql
-```sh
-sudo mysqladmin -p -u tuanvallen version
+- Enable and start SSH:
+```bash
+sudo systemctl enable ssh
+sudo systemctl start ssh
 ```
-Output
 
-![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Install%20MYSQL/Hasil%20Output%20versi%20mysql.png?raw=true)
+### 7. Configure Flask Application
+- Create a directory for your Flask application:
+```bash
+mkdir ~/my_flask_app
+cd ~/my_flask_app
+```
+- Create a sample `app.py` file:
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
+if __name__ == "__main__":
+    app.run()
+```
+
+### 8. Run Flask with Gunicorn
+```bash
+gunicorn --bind 0.0.0.0:8000 app:app
+```
+
+### 9. Configure Apache to Proxy Requests to Gunicorn
+- Enable the necessary Apache modules:
+```bash
+sudo a2enmod proxy proxy_http
+sudo systemctl restart apache2
+```
+- Create an Apache configuration file for your Flask app:
+```bash
+sudo nano /etc/apache2/sites-available/my_flask_app.conf
+```
+Add the following content:
+```apache
+<VirtualHost *:80>
+    ServerName yourdomain.com
+
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+- Enable the site and restart Apache:
+```bash
+sudo a2ensite my_flask_app
+sudo systemctl restart apache2
+```
+
+### 10. Test the Setup
+- Open a browser and navigate to `http://<your-server-ip>`.
+- You should see "Hello, World!" displayed.
+
+---
+
+## Troubleshooting
+
+- Check Apache logs:
+```bash
+sudo tail -f /var/log/apache2/error.log
+```
+- Check Flask/Gunicorn logs:
+```bash
+journalctl -u gunicorn
+```
+
+---
+
+## Optional: Secure Your Server with SSL (Let's Encrypt)
+- Install Certbot:
+```bash
+sudo apt install certbot python3-certbot-apache -y
+```
+- Obtain and install an SSL certificate:
+```bash
+sudo certbot --apache
+```
+- Test SSL renewal:
+```bash
+sudo certbot renew --dry-run
+```
+
+---
+
+## Conclusion
+You have successfully set up a web server on Ubuntu 22.04 using Apache2, Flask, Gunicorn, and SSH Server. Customize your Flask app as needed and deploy it confidently.
+
+---
+
