@@ -22,6 +22,9 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ### 2. Instal Apache2 Web Server
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Apache_img.png
+?raw=true)
+
 ```bash
 sudo apt install apache2 -y
 ```
