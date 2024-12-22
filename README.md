@@ -22,6 +22,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ### 2. Instal Apache2 Web Server
+
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Apache_img.png?raw=true)
 
 ```bash
@@ -39,11 +40,18 @@ sudo apt install python3 python3-pip -y
 ```
 
 ### 4. Instal Framework Flask
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/flask1.png?raw=true)
+
 ```bash
 pip3 install flask
 ```
 
 ### 5. Instal Gunicorn
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Gunicorn.jpeg?raw=true)
+
+
 ```bash
 pip3 install gunicorn
 ```
@@ -164,6 +172,9 @@ sudo cloudflared tunnel run my_flask_app
   - Target: `my_flask_app` (sesuai nama tunnel Anda)
 
 ---
+### 15. jalankan dengan nama hostingan anada
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Screenshot%202024-12-22%20231801.png?raw=true)
 
 ---
 
