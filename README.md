@@ -2,7 +2,7 @@
 ## FINAL PROJEK
 # Pengaturan Server Web pada Ubuntu 22.04
 
-Panduan ini memberikan langkah-langkah untuk mengatur server web di Ubuntu 22.04 dengan Apache2, Flask, Gunicorn, dan SSH Server.
+Panduan ini memberikan langkah-langkah untuk mengatur server web di Ubuntu 22.04 dengan Apache2, Flask, Gunicorn, menghosting, dan SSH Server.
 
 ---
 
